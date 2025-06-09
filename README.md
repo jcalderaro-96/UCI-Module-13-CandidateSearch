@@ -101,4 +101,4 @@ This project is licensed under the MIT License.
 This project was built through collaboration between myself and ChatGPT by OpenAI, who provided valuable insights, technical guidance, and best practices throughout the development process. Their support helped ensure the app met the challenge requirements and achieved a polished, professional finish.
 
 Enjoy! 🚀
-
+ 
