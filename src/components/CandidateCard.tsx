@@ -3,13 +3,13 @@
 import React from 'react';
 
 interface Candidate {
-  name: string;
+  name?: string;
   login: string;
-  location: string;
+  location?: string;
   avatar_url: string;
-  email: string;
+  email?: string;
   html_url: string;
-  company: string;
+  company?: string;
 }
 
 interface CandidateCardProps {
@@ -23,16 +23,16 @@ const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, onSave, onReje
     <div className="candidate-card" style={styles.cardContainer}>
       <img
         src={candidate.avatar_url}
-        alt={`Avatar of ${candidate.name}`}
+        alt={`Avatar of ${candidate.name || candidate.login}`}
         className="candidate-avatar"
         style={styles.avatar}
       />
       <div className="candidate-info" style={styles.infoContainer}>
-        <h2 style={styles.name}>{candidate.name}</h2>
+        <h2 style={styles.name}>{candidate.name || "No Name Provided"}</h2>
         <p><strong>Username:</strong> {candidate.login}</p>
-        <p><strong>Location:</strong> {candidate.location || 'N/A'}</p>
-        <p><strong>Email:</strong> {candidate.email || 'N/A'}</p>
-        <p><strong>Company:</strong> {candidate.company || 'N/A'}</p>
+        <p><strong>Location:</strong> {candidate.location || "N/A"}</p>
+        <p><strong>Email:</strong> {candidate.email || "N/A"}</p>
+        <p><strong>Company:</strong> {candidate.company || "N/A"}</p>
         <p><strong>Profile:</strong> 
           <a href={candidate.html_url} target="_blank" rel="noopener noreferrer" style={styles.link}>
             GitHub Profile
@@ -43,14 +43,14 @@ const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, onSave, onReje
         <button
           onClick={onSave}
           style={styles.saveButton}
-          aria-label={`Save ${candidate.name}`}
+          aria-label={`Save ${candidate.name || candidate.login}`}
         >
           Save
         </button>
         <button
           onClick={onReject}
           style={styles.rejectButton}
-          aria-label={`Reject ${candidate.name}`}
+          aria-label={`Reject ${candidate.name || candidate.login}`}
         >
           Reject
         </button>
@@ -63,14 +63,14 @@ const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, onSave, onReje
 const styles = {
   cardContainer: {
     display: 'flex' as 'flex',
-    flexDirection: 'row' as 'row', // 'row' or 'column' (ensure it's a valid flex direction)
+    flexDirection: 'row' as 'row',
     border: '1px solid #ddd',
     borderRadius: '8px',
     padding: '15px',
     marginBottom: '20px',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     backgroundColor: '#fff',
-    alignItems: 'center' as 'center', // Valid values: 'flex-start', 'center', 'flex-end', etc.
+    alignItems: 'center' as 'center',
   },
   avatar: {
     borderRadius: '50%',
@@ -92,7 +92,7 @@ const styles = {
   },
   actionContainer: {
     display: 'flex' as 'flex',
-    flexDirection: 'column' as 'column', // 'row' or 'column' for flex container
+    flexDirection: 'column' as 'column',
     alignItems: 'flex-end' as 'flex-end',
     gap: '10px',
   },
