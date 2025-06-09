@@ -4,6 +4,8 @@ A TypeScript-powered candidate search application that integrates with the GitHu
 
 ![Candidate Search Screenshot](./screenshot.png) <!-- Replace with your actual screenshot file path -->
 
+Site is deployed on:
+https://uci-module-13-candidatesearch.onrender.com/
 ---
 
 ## 📚 Description
